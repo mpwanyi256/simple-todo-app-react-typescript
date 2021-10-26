@@ -15,6 +15,11 @@ const NewTodo: React.FC<newTodoProps> = (props) => {
         event.preventDefault();
 
         const enteredText = textInputRef.current?.value as string;
+
+        if (enteredText.trim().length < 1) {
+            alert('Sorry, to do should have atleast 2 characters')
+            return;
+        }
         props.add(enteredText)
         formElementRef.current!.reset()
         textInputRef.current!.focus()

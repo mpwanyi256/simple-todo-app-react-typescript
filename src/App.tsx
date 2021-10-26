@@ -9,18 +9,27 @@ const App: React.FC = ()=> {
 
   const addTodoItem = (text: string) => {
     setTodos(prevTodos => 
-      [...prevTodos, { id: prevTodos.length + 1,text }]
+      [{ id: Math.random(),text, status: 0 }, ...prevTodos]
     );
   }
 
-  const deleteTodoHandler = (todoId: number)=> {
-    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId))
+  const markAsDoneHandler = (TODO: Todo)=> {
+    setTodos(prevTodos => 
+      [
+        ...prevTodos.filter(todo => todo.id !== TODO.id), 
+        { ...TODO, status: 1 }
+      ]
+    )
+  }
+
+  const deleteTodoHandler = (TODO: Todo)=> {
+    setTodos(prevTodos => [...prevTodos.filter(todo => todo.id !== TODO.id)])
   }
 
   return (
     <div className="App">
       <NewTodo add={addTodoItem} />
-      <TodoList items={todos} deleteTodo={deleteTodoHandler} />
+      <TodoList items={todos} markdone={markAsDoneHandler} deleteTodo={deleteTodoHandler} />
     </div>
   );
 }

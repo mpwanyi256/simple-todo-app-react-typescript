@@ -1,13 +1,81 @@
-ul {
-  list-style: none;
+.todos-list {
+  display: grid;
+  grid-template-columns: 30% 70%;
   width: 90%;
   max-width: 40rem;
   margin: 2rem auto;
   padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  height: calc(100vh - 200px);
+  overflow: hidden
+}
+
+.todo-tabs {
+  min-height: 100%;
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-x: hidden;
+}
+
+.list-item {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.current-tab {
+  border: 1px solid rgb(180, 180, 180);
+  background-color: rgb(180, 180, 180);
+  /* font-weight: 350; */
+}
+
+.todos-list-view {
+  min-height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.todos-display {
+  max-height: inherit;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.header-content {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+  background-color: #00d1b2;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  /* width: 90%;
+  max-width: 40rem; */
+  width: 100%;
+  /* margin: 2rem auto; */
+  padding: 0;
 }
 
 li {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 6px;
@@ -16,16 +84,30 @@ li {
   align-items: center;
 }
 
-.delete-btn {
-  background: rgb(160, 7, 7);
-  border: 1px solid rgb(160, 7, 7);
+.mark-done-btn {
+  background: #00d1b2;
+  border: 1px solid #00d1b2;
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.mark-done-btn:hover, .mark-done-btn:active {
+  background: #00d1b2;
+  border: 1px solid #00d1b2;
+}
+
+.delete-btn {
+  background: rgb(146, 17, 23);
+  border: 1px solid rgb(146, 17, 23);
+  color: white;
+  padding: 0.5rem 0.5rem;
   cursor: pointer;
   border-radius: 5px;
 }
 
 .delete-btn:hover, .delete-btn:active {
-  background: rgb(190, 14, 14);
-  border: 1px solid rgb(190, 14, 14);
+  background: rgb(146, 17, 23);
+  border: 1px solid rgb(146, 17, 23);
 }
